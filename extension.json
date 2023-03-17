@@ -1,0 +1,13 @@
+{
+  "name": "ADXL Accelerometer SPI Decoder",
+  "apiVersion": "1.0.0",
+  "author": "Lukilukeskywalker",
+  "version": "0.0.1",
+  "description": "Decoder for ADXL Accelerometers",
+  "extensions": {
+    "ADXL Accelerometer SPI Decoder": {
+      "type": "HighLevelAnalyzer",
+      "entryPoint": "HighLevelAnalyzer.Hla"
+    }
+  }
+}
