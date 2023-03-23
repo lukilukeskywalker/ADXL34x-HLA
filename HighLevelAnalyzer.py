@@ -63,7 +63,12 @@ def decode_reg(address: int, chip_reg_cnt: int, byte: int) -> str:
             structure = register['structure']
             string += decode_structure(structure, byte)
         elif('scale' in register):
-            string += "Value" + f"{byte * register['scale']}" + register['unit']
+            if(not register['signed']):
+                string += "Value: " + f"{byte * register['scale']}" + register['unit']
+            else:
+                convert_to_signed = lambda x: -(x & 0x80) | (x & 0x7F)
+                number = convert_to_signed(byte)
+                string += "Value: " + f"{number  * register['scale']}" + register['unit']
     except:
         string += "Fail decode"
 
